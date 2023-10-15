@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        .right-answer {
+            color: green;
+        }
+
+        .wrong-answer {
+            color: red;
+        }
+    </style>
+    <script>
+        function getResult() {
+            var score = 0;
+            var resultDiv = document.getElementById("result");
+            var questions = document.getElementsByClassName("question");
+            var unanswered = false;
+
+            for (var i = 0; i < questions.length; i++) {
+                var ele = questions[i].querySelector('input[type="radio"]:checked');
+                if (ele) {
+                    if (ele.value === "correct") {
+                        score++;
+                        ele.parentElement.classList.add('right-answer');
+                    } else {
+                        ele.parentElement.classList.add('wrong-answer');
+                    }
+                } else {
+                    unanswered = true;
+                }
+            }
+
+            if (unanswered) {
+                resultDiv.innerHTML = "Please attempt all questions.";
+            } else {
+                resultDiv.innerHTML = "You scored " + score + " out of 10.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <center><h1><u>Welcome to the Quiz</u></h1></center>
+    <center><h2><u>(*All questions carry equal marks*)</u></h2></center>
+
+    <div class="question">
+        <b><p>1.What is the chemical symbol for the element gold?</p></b>
+        <input type="radio" name="capital1" value="incorrect">Ag<br>
+        <input type="radio" name="capital1" value="correct">Au<br>
+        <input type="radio" name="capital1" value="incorrect">Mg <br>
+        <input type="radio" name="capital1" value="incorrect">Fe<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>2.Which two countries share the longest international border?</p></b>
+        <input type="radio" name="planet1" value="correct"> USA and Canada<br>
+        <input type="radio" name="planet1" value="incorrect">Russia and China<br>
+        <input type="radio" name="planet1" value="incorrect">Brazil and Argentina <br>
+        <input type="radio" name="planet1" value="incorrect">India and Pakistan <br><br>
+    </div>
+
+    <div class="question">
+        <b><p>3.Who wrote the play "Romeo and Juliet"?</p></b>
+        <input type="radio" name="writter1" value="correct">William Shakespeare<br>
+        <input type="radio" name="writter1" value="incorrect">Jane Austen <br>
+        <input type="radio" name="writter1" value="incorrect">Charles Dickens <br>
+        <input type="radio" name="writter1" value="incorrect">F.Scott Fitzgerald <br><br>
+    </div>
+
+    <div class="question">
+        <b><p>4.in the film "The Shawshank Redemption," what is the name of the main character?</p></b>
+        <input type="radio" name="film1" value="correct">Andy Dufresne<br>
+        <input type="radio" name="film1" value="incorrect">Red<br>
+        <input type="radio" name="film1" value="incorrect">Tommy Williams <br>
+        <input type="radio" name="film1" value="incorrect">Warden Norton <br><br>
+    </div>
+
+    <div class="question">
+        <b><p>5.What year did Christopher Columbus first reach the Americas?</p></b>
+        <input type="radio" name="america1" value="correct">1492<br>
+        <input type="radio" name="america1" value="incorrect">1607 <br>
+        <input type="radio" name="america1" value="incorrect">1776 <br>
+        <input type="radio" name="america1" value="incorrect">1832<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>6.What does the acronym "URL" stand for?</p></b>
+        <input type="radio" name="acro1" value="correct">Uniform Resource Locator<br>
+        <input type="radio" name="acro1" value="incorrect">Universal Reference Link <br>
+        <input type="radio" name="acro1" value="incorrect">Unified Retrieval Link<br>
+        <input type="radio" name="acro1" value="incorrect">User Requirement Language <br><br>
+    </div>
+
+    <div class="question">
+        <b><p>7.In which sport would you perform a slam dunk?</p></b>
+        <input type="radio" name="sport1" value="correct">Basketball <br>
+        <input type="radio" name="sport1" value="incorrect">Tennis<br>
+        <input type="radio" name="sport1" value="incorrect">Soccer <br>
+        <input type="radio" name="sport1" value="incorrect">Golf<br><br>
+    </div>
+
+    <div class="question">
+        <b><p>8.Who is known as the "Queen of Pop"</p></b>
+        <input type="radio" name="pop1" value="correct">Madonna <br>
+        <input type="radio" name="pop1" value="incorrect">Beyoncé <br>
+        <input type="radio" name="pop1" value="incorrect">Lady Gaga <br>
+        <input type="radio" name="pop1" value="incorrect">Rihanna <br><br>
+    </div>
+
+    <div class="question">
+        <b><p>9.What is the capital city of Australia?</p></b>
+        <input type="radio" name="place1" value="incorrect">Sydney<br>
+        <input type="radio" name="place1" value="correct">Canberra <br>
+        <input type="radio" name="place1" value="incorrect">Melbourne <br>
+        <input type="radio" name="place1" value="incorrect">Brisbane <br><br>
+    </div>
+
+    <div class="question">
+        <b><p>10.What is the value of pi (π) to two decimal places?</p></b>
+        <input type="radio" name="pi1" value="correct">3.14<br>
+        <input type="radio" name="pi1" value="incorrect">3.16<br>
+        <input type="radio" name="pi1" value="incorrect">3.18 <br>
+        <input type="radio" name="pi1" value="incorrect">3.12<br><br>
+    </div>
+
+
+    <input type="button" value="Submit" onclick="getResult()">
+    <input type="button" value="Cancel">
+
+    <div id="result"></div>
+</body>
+</html>
